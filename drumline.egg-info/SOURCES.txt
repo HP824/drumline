@@ -1,0 +1,8 @@
+setup.py
+drumline/__init__.py
+drumline/hello.py
+drumline.egg-info/PKG-INFO
+drumline.egg-info/SOURCES.txt
+drumline.egg-info/dependency_links.txt
+drumline.egg-info/entry_points.txt
+drumline.egg-info/top_level.txt
