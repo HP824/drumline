@@ -41,7 +41,6 @@ class Drumline:
             print(e)
             return
         self.__members.remove(member)
-        print("oof")
 
     # promote members (return new drumline object)
     def promote_members(self) -> 'Drumline':

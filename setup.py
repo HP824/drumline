@@ -12,7 +12,7 @@ setup(
     setup_requires=['flake8'],
     entry_points={
         'console_scripts': [
-            'drumline = drumline.main:main'
+            'drumline = drumline.app.main:main'
         ]
     }
 )

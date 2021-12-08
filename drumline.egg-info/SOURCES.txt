@@ -1,7 +1,6 @@
 setup.cfg
 setup.py
 drumline/__init__.py
-drumline/main.py
 drumline.egg-info/PKG-INFO
 drumline.egg-info/SOURCES.txt
 drumline.egg-info/dependency_links.txt
