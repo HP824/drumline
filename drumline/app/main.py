@@ -1,7 +1,12 @@
+"""
+Main entrypoint for entire application
+"""
+
 from drumline.app.helpers import *
 
 
-def print_help():
+def print_help() -> None:
+    """Prints help for command initially and after invalid commands."""
     print("""Available commands:
     * add (adds new member)
     * list (lists all existing members)
@@ -9,10 +14,12 @@ def print_help():
     * remove (removes existing member)
     * promote (promotes drumline)
     * scramble (assigns random roles to all members)
+    * quit (quits and exits program)
 """)
 
 
-def main():
+def main() -> None:
+    """Entrypoint for application"""
     print("Welcome to the Drumline utility!")
     print_help()
     print("A sample drumline has already been created for you.")

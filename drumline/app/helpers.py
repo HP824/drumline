@@ -1,9 +1,19 @@
+"""
+Toplevel command implementations that are invoked by the user.
+Do not use outside the context of main.py.
+"""
+
 from drumline.data.drumline import Drumline
 from drumline.data.member import Member
 from drumline.data.enums import Year, Instrument
 
 
 def __create_drumline() -> Drumline:
+    """
+    Creates a new sample drumline object for initial use
+
+    :return: a new Drumline with a fixed amount of sample members
+    """
     varun = Member("Varun", Year.junior, Instrument.tenors)
     adrian = Member("Adrian", Year.junior, Instrument.tenors)
     isaac = Member("Isaac", Year.senior, Instrument.snare)
@@ -22,13 +32,21 @@ drumline = __create_drumline()
 
 
 def add_member() -> None:
+    """
+    Adds new member into Drumline object
+
+    :return: none
+    """
     while True:
+        # Enter name of member
         name = input("Enter name of member: ")
+        # Checks to see if valid name has been inputted
         if len(name) == 0:
             print("Enter a valid name")
             continue
         break
     while True:
+        # Enter year of member
         year = input("Enter year member is in (freshman, sophomore, junior, senior, alumnus): ").lower()
         if year == "freshman":
             year = Year.freshman
@@ -45,6 +63,7 @@ def add_member() -> None:
             continue
         break
     while True:
+        # Enter instrument of member
         instrument = input("Enter instrument for member (snare, tenors, bass, cymbals): ").lower()
         if instrument == "snare":
             instrument = Instrument.snare
@@ -64,6 +83,11 @@ def add_member() -> None:
 
 
 def list_members() -> None:
+    """
+    Lists members of Drumline object
+
+    :return: None
+    """
     members = drumline.get_members()
     if len(members) == 0:
         print("No members found! Add one using the \"add\" command.")
@@ -72,7 +96,14 @@ def list_members() -> None:
 
 
 def find_member() -> None:
+    """
+    Finds member in Drumline object
+
+    :return: None
+    """
+    # Enter name of member if known
     name = input("Enter name of member (skip if unknown): ")
+    # Enter a valid year of member if known
     while True:
         year = input("Enter year they are in: (skip if unknown): ").lower()
         if len(year) > 0:
@@ -91,6 +122,7 @@ def find_member() -> None:
                 continue
             break
         break
+    # Enter valid instrument if known
     while True:
         instrument = input("Enter instrument they play (skip if unknown): ").lower()
         if len(instrument) > 0:
@@ -107,6 +139,7 @@ def find_member() -> None:
                 continue
             break
         break
+    # conditionally passes the keyword arguments if they exist
     arguments = {}
     if len(name) > 0:
         arguments.update({"name": name})
@@ -122,11 +155,18 @@ def find_member() -> None:
 
 
 def remove_member() -> None:
+    """
+    removes member from Drumline object
+
+    :return: None
+    """
+    # display current members listed
     print("These are the current members:")
     members = drumline.get_members()
     for i in range(1, len(members) + 1):
         print(f"{i}) {members[i - 1]}")
     index = 0
+    # asks user for which member they want to remove with integer input
     while True:
         try:
             index = int(input("Which one do you want to remove? Enter the number: "))
@@ -142,14 +182,24 @@ def remove_member() -> None:
 
 
 def promote_members() -> None:
+    """
+    promotes members of Drumline object
+
+    :return: None
+    """
     global drumline
-    print("Congratulations on not fucking up and moving on to the next year!")
+    print("Congratulations on moving on to the next year!")
     drumline = drumline.promote_members()
     print("This drumline has now been promoted! Check it out:")
     list_members()
 
 
 def scramble_members() -> None:
+    """
+    scrambles member instruments in Drumline object
+
+    :return: None
+    """
     global drumline
     print("Now scrambling the drumline. Here are your new roles:")
     scrambled = drumline.scramble()

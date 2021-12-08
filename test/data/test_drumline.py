@@ -1,6 +1,7 @@
+"""
+
+"""
 import unittest
-from unittest.mock import patch
-from random import Random
 
 from drumline.data.drumline import Drumline
 from drumline.data.member import Member
@@ -9,9 +10,6 @@ from drumline.data.enums import Year, Instrument
 
 class MyTestCase(unittest.TestCase):
     def setUp(self) -> None:
-        global random
-        random = Random(69420)
-
         self.varun = Member("Varun", Year.junior, Instrument.tenors)
         self.adrian = Member("Adrian", Year.junior, Instrument.tenors)
         self.isaac = Member("Isaac", Year.senior, Instrument.snare)
@@ -24,7 +22,7 @@ class MyTestCase(unittest.TestCase):
         self.john = Member("John", Year.sophomore, Instrument.cymbals)
         self.ash = Member("Ash", Year.sophomore, Instrument.cymbals)
         self.drumline = Drumline(self.varun, self.adrian, self.isaac, self.harish, self.sid,
-                                self.zekah, self.brandon, self.avinash, self.aadi, self.john, self.ash)
+                                 self.zekah, self.brandon, self.avinash, self.aadi, self.john, self.ash)
 
     def test_init_fails(self):
         self.assertRaises(ValueError, Drumline)
